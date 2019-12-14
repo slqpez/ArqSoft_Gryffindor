@@ -2,7 +2,7 @@
 Repositorio para almacenar todos los archivos requeridos en el curso de arquitectura de software.
 
 ## Célula de trabajo: Gryffindor
-Integrantes
+Integrantes:
 ---------------
 * Manuel Calle Garcés
 * Santiago López Quiceno
