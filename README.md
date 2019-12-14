@@ -8,4 +8,4 @@ Integrantes
 * Santiago López Quiceno
 * Alejandro Muñoz Acevedo
 
-![Logo de Wikipedia](https://media.mykaramelli.com/galeria/articulos/decoracion-de-pared-emblema-gryffindor-harry-potter-61cm_12422_1.jpg "Wikipedia logo")
+![Escudo](https://media.mykaramelli.com/galeria/articulos/decoracion-de-pared-emblema-gryffindor-harry-potter-61cm_12422_1.jpg "Escudo Gryffindor")
