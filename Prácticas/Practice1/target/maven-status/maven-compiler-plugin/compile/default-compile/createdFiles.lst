@@ -1,0 +1,6 @@
+com\slqpez\model\Suma.class
+com\slqpez\view\ViewOpe.class
+com\slqpez\execute\Execution.class
+com\slqpez\model\Resta.class
+com\slqpez\operation\IOpertion.class
+com\slqpez\operation\MotorCalculo.class
