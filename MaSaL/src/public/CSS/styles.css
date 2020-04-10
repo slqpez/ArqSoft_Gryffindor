@@ -1,3 +1,8 @@
 body {
   font-family: "Frank Ruhl Libre", serif;
+  background-color: antiquewhite;
+}
+
+.image1 {
+  height: 100px;
 }

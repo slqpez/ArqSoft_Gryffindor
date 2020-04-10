@@ -1,13 +1,40 @@
+<div class="container">
+  <h1>Lista de tus vehículos</h1>
+</div>
+
+
 <div class="container p-4">
   <div class="row">
     {{#each vehicles}}
-    <div class="col-md-3">
-      <div class="card-text-center">
-        <div class="card-body">
-          <h3> Nombre del conductor: {{nameDriver}}</h3>
-          <h3> Placa del hevículo: {{vehiclePlate}}</h3>
-          <h3> Teléfono: {{phone}}</h3>
-        </div>
+    <div class="card m-3" style="width: 18rem;">
+      <div class="col-md2">
+        <img class="image1 m-2" src="https://randomuser.me/api/portraits/men/{{id}}.jpg"
+          class="card-img-top rounded center-block" ; alt=" 100">
+        <img class="image1 m-2 "
+          src="https://previews.123rf.com/images/izakowski/izakowski1306/izakowski130600090/20333489-ilustraci%C3%B3n-de-dibujos-animados-de-camiones-funny-or-cami%C3%B3n-veh%C3%ADculo-comic-car%C3%A1cter-de-la-mascota.jpg"
+          alt=" 100">
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title text-center">{{nameDriver}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Placa del vehículo: <strong>{{vehiclePlate}}</strong></li>
+        <li class="list-group-item">Teléfono: <strong>{{phone}}</strong></li>
+        <li class="list-group-item">Descripción de ruta:<br> <strong>{{description}}</strong></li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="btn btn-success btn-block">Mostrar ubicación 🚚</a>
+        <a href="/vehicles/edit/{{id}}" class="btn btn-info btn-block">Editar conductor ✏</a>
+        <a href="/vehicles/delete/{{id}}" class="btn btn-danger btn-block">Eliminar conductor 😢</a>
+      </div>
+    </div>
+    {{else}}
+    <div class="col-md-4 mx-auto">
+      <div class="card card-body text-center">
+        <p>No hay vehiculos registrados</p>
+        <a href="/vehicles/add">¡Regista a tu vehículo!</a>
+
       </div>
     </div>
     {{/each}}
