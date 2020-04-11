@@ -16,6 +16,7 @@ router.post("/add", async (req, res) => {
     description
   };
   await pool.query("INSERT INTO vehicles set ?", [newVehicle]);
+  req.flash("success", "Vehículo almacenado correctamente.");
   res.redirect("/vehicles");
 });
 
@@ -27,6 +28,7 @@ router.get("/", async (req, res) => {
 router.get("/delete/:id", async (req, res) => {
   const { id } = req.params;
   await pool.query("DELETE FROM vehicles WHERE id=?", [id]);
+  req.flash("success", "Vehículo eliminado correctamente.");
   res.redirect("/vehicles");
 });
 
@@ -35,7 +37,6 @@ router.get("/edit/:id", async (req, res) => {
   const vehicles = await pool.query("SELECT * FROM vehicles WHERE id = ?", [
     id
   ]);
-  console.log(vehicles[0]);
 
   res.render("vehicles/edit", { vehicle: vehicles[0] });
 });
@@ -50,6 +51,10 @@ router.post("/edit/:id", async (req, res) => {
     description
   };
   await pool.query("UPDATE vehicles set ?  WHERE id = ?", [newVehicle, id]);
+  req.flash(
+    "success",
+    "La información del vehículo se ha modificado correctamente."
+  );
   res.redirect("/vehicles");
 });
 
