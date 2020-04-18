@@ -7,7 +7,7 @@ public class Entidad {
     private String phoneNumber;
     private String email;
 
-    public Entidad(long id, String firstName, String lastName, String phoneNumber, String email) {
+    public Entidad() {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
