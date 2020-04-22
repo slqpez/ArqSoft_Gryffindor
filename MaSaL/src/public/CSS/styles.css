@@ -1,5 +1,6 @@
 body {
   padding-top: 70px;
+  background-image: url("/src/public/images/back.jpg");
   font-family: "Frank Ruhl Libre", serif;
   background: #ada996; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -16,8 +17,41 @@ body {
     #f2f2f2,
     #ada996
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
 }
 
 .image1 {
   height: 100px;
+}
+
+#plate {
+  text-transform: uppercase;
+}
+
+.index {
+  width: 100vw;
+  height: 100vh;
+}
+
+.masthead {
+  color: white;
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  background: url("/images/back.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.masthead h1 {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 992px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
 }

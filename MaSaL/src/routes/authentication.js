@@ -11,7 +11,7 @@ router.post(
   "/signup",
   isNotLoggedIn,
   passport.authenticate("local.signup", {
-    successRedirect: "/profile",
+    successRedirect: "/vehicles",
     failureRedirect: "/signup",
     failerFlash: true
   })

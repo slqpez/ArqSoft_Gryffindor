@@ -4,7 +4,7 @@ const { promisify } = require("util");
 const { database } = require("./keys.js");
 
 const pool = mysql.createPool(database);
-
+//TODO perfil administrador y conductor
 pool.getConnection((err, connection) => {
   if (err) {
     if (e.code === "PROTOCOL_CONNECTION_LOST") {

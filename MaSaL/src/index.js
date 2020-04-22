@@ -54,6 +54,7 @@ app.use((req, res, next) => {
 app.use(require("./routes/index.js"));
 app.use(require("./routes/authentication.js"));
 app.use("/vehicles", require("./routes/vehicles.js"));
+app.use(require("./routes/map.js"));
 
 //Public
 app.use(express.static(path.join(__dirname, "public"))); //Para los elementos estáticos.
