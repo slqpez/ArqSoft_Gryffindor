@@ -30,7 +30,7 @@ function initMap(){
 	 
 }
 
-function animar(){//funcion crea un nuevo marcador en el mapa
+function animarPosicion(){//funcion crea un nuevo marcador en el mapa
 
     const ubicacion = new Localizacion( ()=>{
         const pos = {
@@ -38,7 +38,8 @@ function animar(){//funcion crea un nuevo marcador en el mapa
             lng: ubicacion.longitude
         };
         var texto = '<h1> Nombre conductor </h1>' + '<h5>Placa camion</h5>'+'<h5>Empresa del camion</h5>'+'<h5>no recuerdo que mas poner</h5>';
-        const position =[pos,texto];
+        const infoPosicion =[pos,texto];
+        
         var marker = new google.maps.Marker({
 			position: pos,
             map: map,
@@ -55,7 +56,7 @@ function animar(){//funcion crea un nuevo marcador en el mapa
           };
 
          //enviamos al socket la nueva pocision	  
-        socket.emit('position',position);
+        socket.emit('posicion',infoPosicion);
     });
 }
 
@@ -63,13 +64,13 @@ function handleNoGeolocation(errorFlag)
 {
 	  if (errorFlag) 
 	  {
-		var content = 'Error: The Geolocation service failed.';
+		var content = 'Error: La geolocalizacion fallo.';
 	  } 
 	  else 
 	  {
-		var content = 'Error: Your browser doesn\'t support geolocation.';
+		var content = 'Tu navegador no soporta geolocalizacion';
 	  }
 
 }
 
-setInterval(function(){animar()}, 3000);//cada 3 segundos extraemos la ubicacion nuevamente
+setInterval(function(){animarPosicion()}, 3000);//cada 3 segundos extraemos la ubicacion nuevamente

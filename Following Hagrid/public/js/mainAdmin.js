@@ -25,11 +25,11 @@ function initMap(){
     
 }
 
-socket.on('newPosition',(position)=>{
+socket.on('nuevaPosicion',(infoPosicion)=>{
   console.log("conductor conectado");
   var imagen = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';  
-  var texto = position[1];
-  var pos = position[0];
+  var texto = infoPosicion[1];
+  var pos = infoPosicion[0];
   
   var marcador = new google.maps.Marker({
     position: pos,
