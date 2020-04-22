@@ -1,5 +1,5 @@
 var map;
-var socket = io.connect('http://localhost:3000', {'forceNew':true});
+var socket = io.connect('http://localhost:4000', {'forceNew':true});
 function initMap(){
     const ubicacion = new Localizacion( ()=>{
         const myLatLng = {

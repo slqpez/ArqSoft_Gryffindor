@@ -1,7 +1,7 @@
 var map;
 var marker;
 var imagen = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-var socket = io.connect('http://localhost:3000', {'forceNew':true});
+var socket = io.connect('http://localhost:4000', {'forceNew':true});
 
 function initMap(){
     const ubicacion = new Localizacion( ()=>{
@@ -39,7 +39,6 @@ function animar(){//funcion crea un nuevo marcador en el mapa
         };
         var texto = '<h1> Nombre conductor </h1>' + '<h5>Placa camion</h5>'+'<h5>Empresa del camion</h5>'+'<h5>no recuerdo que mas poner</h5>';
         const position =[pos,texto];
-        console.log(position);   
         var marker = new google.maps.Marker({
 			position: pos,
             map: map,
@@ -54,12 +53,7 @@ function animar(){//funcion crea un nuevo marcador en el mapa
 			position: pos,
 			center:pos
           };
-        var informacion = new google.maps.InfoWindow({
-            content:texto
-        });
-        marker.addListener('click',function(){
-            informacion.open(map,marker);
-        });
+
          //enviamos al socket la nueva pocision	  
         socket.emit('position',position);
     });
