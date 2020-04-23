@@ -43,6 +43,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  top: 0;
 }
 .masthead h1 {
   font-size: 3rem;
@@ -50,6 +51,16 @@ body {
   padding: 0;
 }
 
+/*Map's style */
+#map {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  background: aqua;
+}
+
+/* Responsive */
 @media (min-width: 992px) {
   .masthead h1 {
     font-size: 5.5rem;

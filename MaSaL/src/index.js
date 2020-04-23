@@ -7,10 +7,17 @@ const session = require("express-session");
 const mysqlStore = require("express-mysql-session");
 const { database } = require("./keys");
 const passport = require("passport");
+const socket = require("socket.io");
+const http = require("http");
 
 //Iinitial
 const app = express();
+const server = http.createServer(app);
+const io = socket(server);
 require("./lib/passport.js");
+
+//Socket
+require("./sockets.js")(io);
 
 //Settings
 app.set("port", process.env.PORT || 4000);
@@ -42,6 +49,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
+
 //Global variables
 app.use((req, res, next) => {
   app.locals.success = req.flash("success");
@@ -61,6 +69,6 @@ app.use(express.static(path.join(__dirname, "public"))); //Para los elementos es
 
 //Start Server
 
-app.listen(app.get("port"), () => {
+server.listen(app.get("port"), () => {
   console.log(`Server running on: http://localhost:${app.get("port")}`);
 });
