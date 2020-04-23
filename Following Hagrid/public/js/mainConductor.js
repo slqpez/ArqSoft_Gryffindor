@@ -1,42 +1,40 @@
 var map;
 var marker;
-var imagen = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+var imagen ={ url:'img/delivery-truck.png'}
 var socket = io.connect('http://localhost:4000', {'forceNew':true});
 
 function initMap(){
-    const ubicacion = new Localizacion( ()=>{
-        const myLatLng = {
-            lat: ubicacion.latitude,
-            lng: ubicacion.longitude
-        };
+    if(navigator.geolocation) //si acepta la geolocalizacion 
+    {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var myLatLng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
-    var options = {
-        center:myLatLng ,
-        zoom:15
-    }
+            var options = {
+                center:myLatLng ,
+                zoom:15
+            }
 
-    map = new google.maps.Map(document.getElementById('map'), options);
+            map = new google.maps.Map(document.getElementById('map'), options);
     
-    const marcador = new google.maps.Marker({
-        position:myLatLng,
-        map:map,
-        title:"tu posicion",
-        icon:imagen
-
-        
-    });
-
-    });
-	 
+            const marcador = new google.maps.Marker({
+                position:myLatLng,
+                map:map,
+                title:"tu posicion",
+                icon:imagen
+             });
+         });
+    }
 }
+ 
 
 function animarPosicion(){//funcion crea un nuevo marcador en el mapa
+    if(navigator.geolocation) //si acepta la geolocalizacion
+    {
+          navigator.geolocation.getCurrentPosition(function(position) 
+          {
 
-    const ubicacion = new Localizacion( ()=>{
-        const pos = {
-            lat: ubicacion.latitude,
-            lng: ubicacion.longitude
-        };
+        var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+   
         var texto = '<h1> Nombre conductor </h1>' + '<h5>Placa camion</h5>'+'<h5>Empresa del camion</h5>'+'<h5>no recuerdo que mas poner</h5>';
         const infoPosicion =[pos,texto];
         
@@ -58,6 +56,7 @@ function animarPosicion(){//funcion crea un nuevo marcador en el mapa
          //enviamos al socket la nueva pocision	  
         socket.emit('posicion',infoPosicion);
     });
+}
 }
 
 function handleNoGeolocation(errorFlag) 

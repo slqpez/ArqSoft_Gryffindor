@@ -1,17 +1,16 @@
 var map;
 var socket = io.connect('http://localhost:4000', {'forceNew':true});
 function initMap(){
-    const ubicacion = new Localizacion( ()=>{
-        const myLatLng = {
-            lat: ubicacion.latitude,
-            lng: ubicacion.longitude
-        };
+  if(navigator.geolocation) //si acepta la geolocalizacion 
+  {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var myLatLng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
     var options = {
         center:myLatLng ,
         zoom:15
     }
-
+    var imagen ={ url:'img/pin.png'};   
     map = new google.maps.Map(document.getElementById('map'), options);
     
     
@@ -19,15 +18,17 @@ function initMap(){
         position:myLatLng,
         map:map,
         title:"Tu posicion como Empresario macho que sos",
+        icon:imagen
     });
 
     });
     
+  }
 }
 
 socket.on('nuevaPosicion',(infoPosicion)=>{
   console.log("conductor conectado");
-  var imagen = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';  
+  var imagen ={ url:'img/delivery-truck.png'}; 
   var texto = infoPosicion[1];
   var pos = infoPosicion[0];
   
@@ -63,8 +64,6 @@ function handleNoGeolocation(errorFlag)
 	  {
 		var content = 'Error: Your browser doesn\'t support geolocation.';
 	  }
-	
-	  var infowindow = new google.maps.InfoWindow(options);
-	  map.setCenter(options.position);
+
 }
 
