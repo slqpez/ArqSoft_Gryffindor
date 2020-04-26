@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 class="text-center p-4">Lista de tus vehículos</h1>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    {{#each vehicles}}
+    <div class="card col-lg-4 mt-3">
+      <div class=" container col-md2">
+        <img class="image1 m-2 col-md-5 col-sm-5 col-xs-5 rounded-circle" src="https://randomuser.me/api/portraits/men/{{id}}.jpg"
+          class="card-img-top rounded center-block" ; alt=" 100">
+        <img class="image1 m-2 col-md-5 col-sm-5 col-xs-5"
+          src="https://previews.123rf.com/images/izakowski/izakowski1306/izakowski130600090/20333489-ilustraci%C3%B3n-de-dibujos-animados-de-camiones-funny-or-cami%C3%B3n-veh%C3%ADculo-comic-car%C3%A1cter-de-la-mascota.jpg"
+          alt=" 100">
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title text-center"><strong>Nombre del conductor:</strong> {{nameDriver}}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Placa del vehículo: <strong>{{vehiclePlate}}</strong></li>
+        <li class="list-group-item">Teléfono: <strong>{{phone}}</strong></li>
+        <li class="list-group-item">Descripción de ruta:<br> <strong>{{description}}</strong></li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="btn btn-dark btn-block">Mostrar ubicación</a>
+        <a href="/vehicles/edit/{{id}}" class="btn btn-secondary btn-block">Editar información</a>
+        <a href="/vehicles/delete/{{id}}" class="btn btn-danger btn-block">Eliminar vehículo</a>
+      </div>
+    </div>
+    {{else}}
+    <div class="col-md-4 mx-auto">
+      <div class="card card-body text-center">
+        <p>No hay vehiculos registrados</p>
+        <a href="/vehicles/add">¡Registra un vehículo!</a>
+
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

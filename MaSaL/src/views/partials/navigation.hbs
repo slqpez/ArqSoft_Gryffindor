@@ -1,0 +1,55 @@
+<!--Navegador-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+        <a class="navbar-brand text-light" href="/"><strong>MaSaL</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Vehículos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-dark" href="/vehicles">Mis vehículos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-dark" href="/vehicles/add">Agregar un vehículo</a>
+                        <div class="dropdown-divider"></div>
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light " href="/map">Ir al mapa 🗺</a>
+                </li>
+                <li class="nav-item"> 
+                    <a class="nav-link text-light" href="#">Ayuda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/profile" class="nav-link far fa-user text-light" title="Perfil"></a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link text-light">Cerrar sesión</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a href="/signin" class="nav-link text-light">Ingresar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signup" class="nav-link text-light">Registrarse</a>
+                </li>
+
+                {{/if}}
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

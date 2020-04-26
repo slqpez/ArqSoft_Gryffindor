@@ -1,0 +1,67 @@
+body {
+  padding-top: 70px;
+  background-image: url("/src/public/images/back.jpg");
+  background-size: 100%;
+  font-family: "Frank Ruhl Libre", serif;
+  background: #ada996; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;
+}
+nav{
+  background: #000000;
+  height: 80px;
+  
+}
+.image1 {
+  height: 100px;
+}
+
+#plate {
+  text-transform: uppercase;
+}
+
+.index {
+  width: 100vw;
+  height: 100vh;
+}
+
+.masthead {
+  color: white;
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  background: url("/images/back.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.masthead h1 {
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+  color: #000000;
+}
+.masthead h3 {
+
+  color: #000000;
+}
+
+@media (min-width: 992px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
+}
