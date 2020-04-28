@@ -17,6 +17,14 @@ router.post("/add", isLoggedIn, async (req, res) => {
     description,
     user_id: req.user.id
   };
+  const newUser = {
+    userName: vehiclePlate,
+    password: 123,
+    fullName: nameDriver,
+    id: req.user.id + 100,
+    rol: "driver"
+  };
+  await pool.query("INSERT INTO users set ?", [newUser]);
   await pool.query("INSERT INTO vehicles set ?", [newVehicle]);
   req.flash("success", "Vehículo almacenado correctamente.");
   res.redirect("/vehicles");

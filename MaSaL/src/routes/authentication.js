@@ -7,11 +7,15 @@ router.get("/signup", isNotLoggedIn, (req, res) => {
   res.render("auth/signUp");
 });
 
+router.get("/pay", isNotLoggedIn, (req, res) => {
+  res.render("auth/pay");
+});
+
 router.post(
   "/signup",
   isNotLoggedIn,
   passport.authenticate("local.signup", {
-    successRedirect: "/vehicles",
+    successRedirect: "/pay",
     failureRedirect: "/signup",
     failerFlash: true
   })
@@ -23,7 +27,7 @@ router.get("/signin", isNotLoggedIn, (req, res) => {
 
 router.post("/signin", isNotLoggedIn, (req, res, next) => {
   passport.authenticate("local.signin", {
-    successRedirect: "/profile",
+    successRedirect: "/vehicles",
     failureRedirect: "/signin",
     failerFlash: true
   })(req, res, next);
@@ -35,7 +39,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 
 router.get("/logout", isLoggedIn, (req, res, next) => {
   req.logOut();
-  res.redirect("/signin");
+  res.redirect("/");
 });
 
 module.exports = router;

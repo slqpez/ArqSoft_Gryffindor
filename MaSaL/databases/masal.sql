@@ -1,8 +1,7 @@
 CREATE DATABASE masal;
 
-USE masal;
-
  --Tabla de usuarios para autenticación
+USE masal;
 CREATE TABLE users(
     id INT(11) NOT NULL,
     userName VARCHAR(16) NOT NULL,
@@ -16,10 +15,11 @@ ALTER TABLE users
 ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT =2;
 
+USE masal;
 DESCRIBE users;
 
-
 --Tabla de vehículos
+USE masal;
 CREATE TABLE vehicles(
     id INT(11) NOT NULL,
     nameDriver VARCHAR(100) NOT NULL,
@@ -37,7 +37,9 @@ ALTER TABLE vehicles
 ALTER TABLE vehicles
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT =2;
 
-DESCRIBE vehicles;
 
-ALTER TABLE employees
-  ADD rol  VARCHAR(10);
+ALTER TABLE users
+  ADD rol enum("admin","user","driver");
+
+USE masal;
+DESCRIBE users vehicles;

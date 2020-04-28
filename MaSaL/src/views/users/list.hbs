@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-center p-4">Lista de tus ususarios</h1>
+</div>
+
+
+<div class="container p-4">
+    <div class="row">
+        {{#each users}}
+        <div class="card m-3" style="width: 18rem;">
+            <div class="col-md2 ">
+                <img class="image1 m-2 rounded-circle" src="https://randomuser.me/api/portraits/men/{{id}}.jpg"
+                    class="card-img-top rounded center-block" ; alt=" 100">
+
+            </div>
+
+
+            <div class="card-body">
+                <div class="text-center">
+                    {{userName}}
+                </div>
+                <div class="text-center">
+                    {{fullName}}
+                </div>
+                <div class="text-center">
+                    {{rol}}
+                </div>
+
+
+
+                <a href="/users/delete/{{id}}" class="btn btn-danger btn-block mt-5">Eliminar usuario</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

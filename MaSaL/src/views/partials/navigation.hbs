@@ -11,37 +11,37 @@
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle fas fa-shuttle-van text-light" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vehículos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item text-dark" href="/vehicles">Mis vehículos</a>
-                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider "></div>
                         <a class="dropdown-item text-dark" href="/vehicles/add">Agregar un vehículo</a>
                         <div class="dropdown-divider"></div>
 
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light " href="/map">Ir al mapa 🗺</a>
-                </li>
-                <li class="nav-item"> 
-                    <a class="nav-link text-light" href="#">Ayuda</a>
+                    <a class="nav-link fas fa-globe-americas text-light" href="/map"> Ir al mapa </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/profile" class="nav-link far fa-user text-light" title="Perfil"></a>
+                    <a class="nav-link far fa-question-circle text-light " href="#"> Ayuda</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/profile" class="nav-link far fa-user text-light "> Perfil</a>
 
                 </li>
                 <li class="nav-item">
-                    <a href="/logout" class="nav-link text-light">Cerrar sesión</a>
+                    <a href="/logout" class="nav-link fas fa-door-closed text-light "> Cerrar sesión</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
-                    <a href="/signin" class="nav-link text-light">Ingresar</a>
+                    <a href="/signin" class="nav-link fas fa-sign-in-alt text-light "> Ingresar</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/signup" class="nav-link text-light">Registrarse</a>
+                    <a href="/signup" class="nav-link fas fa-clipboard-list text-light "> Registrarse</a>
                 </li>
 
                 {{/if}}
