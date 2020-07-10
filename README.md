@@ -1,5 +1,5 @@
 # Arquitectura de Software
-Repositorio para almacenar todos los archivos requeridos en el curso de arquitectura de software.
+Arq. soft repository.
 
 ## Célula de trabajo: Gryffindor
 Integrantes:
